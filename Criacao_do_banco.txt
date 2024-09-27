@@ -1,0 +1,13 @@
+-- Criar o banco de dados
+CREATE DATABASE user_meals_db;
+
+-- Criar um usuário com senha
+CREATE USER 'andre_user'@'localhost' IDENTIFIED BY 'senha_segura';
+
+-- Conceder permissões
+GRANT ALL PRIVILEGES ON user_meals_db.* TO 'andre_user'@'localhost';
+
+-- Aplicar as mudanças
+FLUSH PRIVILEGES;
+
+npx prisma migrate dev --name init
